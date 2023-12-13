@@ -24,8 +24,8 @@ public class ShowCards extends JDialog{
         setContentPane(showCardsJPanel);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setTitle("Lista kart");
-        int width = 500;
-        int height = 400;
+        int width = 600;
+        int height = 475;
         setSize(width, height);
         setResizable(false);
         setLocationRelativeTo(null);

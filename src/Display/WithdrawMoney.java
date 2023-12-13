@@ -18,16 +18,19 @@ public class WithdrawMoney extends JDialog {
     private JPanel bottomJPanel;
     private JPanel middleJPanel;
     private JLabel titleLabel;
-    private JLabel isconLabel;
-    private JLabel cardNameLabel;
-    private JLabel cardPinLabel;
+    private JLabel topTitleLabel;
     private JTextField amountField;
+    private JLabel middleTitleLabel;
+    private JLabel bottomTitleLabel;
+    private JLabel iconLabel;
+    private JPanel middleRightJPanel;
+    private JPanel middleLeftJPanel;
 
     public WithdrawMoney() {
         setTitle("Wypłać pieniądze");
         setContentPane(withdrawMoneyJPanel);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        int width = 500;
+        int width = 600;
         int height = 475;
         setSize(width, height);
         setResizable(false);
@@ -44,7 +47,10 @@ public class WithdrawMoney extends JDialog {
                 String cardName = cardNameField.getText();
                 String cardPin = cardPinField.getText();
                 String balance = amountField.getText();
-
+                if (cardName.equals("") || cardPin.equals("") || balance.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Wypełnij wszystkie pola", "Try again", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
                 card = getAuthentificationCard(cardName, cardPin, balance);
                 if (card != null) {
                     dispose();
@@ -73,45 +79,17 @@ public class WithdrawMoney extends JDialog {
                 card.cardName = resultSet.getString("nazwakarty");
                 card.cardPin = resultSet.getString("pinkarty");
                 card.cardBalance = resultSet.getString("saldokarty");
-//                    card.cardBalance = String.valueOf(Integer.parseInt(card.cardBalance) - Integer.parseInt(amount));
-                if (card.cardType.equals("kartaKredytowa")) {
-                    if (Integer.parseInt(card.cardBalance) >= Integer.parseInt(amount)) {
-                        card.cardBalance = String.valueOf(Integer.parseInt(card.cardBalance) - Integer.parseInt(amount));
-                        String updateSql = "UPDATE karty SET saldokarty = ? WHERE nazwakarty = ?";
-                        PreparedStatement updatePs = conn.prepareStatement(updateSql);
-                        updatePs.setString(1, card.cardBalance);
-                        updatePs.setString(2, card.cardName);
-                        updatePs.executeUpdate();
-                        JOptionPane.showMessageDialog(this, "Wypłacono pieniądze obecny balans to: " + (Integer.parseInt(card.cardBalance) - Integer.parseInt(amount)), "Sukces", JOptionPane.INFORMATION_MESSAGE);
-                    } else {
-                        if (Integer.parseInt(card.cardBalance) == 0) {
-                            card.cardBalance = String.valueOf(Integer.parseInt(card.cardBalance) - Integer.parseInt(amount)) ;
-                            JOptionPane.showMessageDialog(this, "Kwota zadłużenia wynosi: " + amount, "Sukces", JOptionPane.INFORMATION_MESSAGE);
-                            String updateSql = "UPDATE karty SET saldokarty = ? WHERE nazwakarty = ?";
-                            PreparedStatement updatePs = conn.prepareStatement(updateSql);
-                            updatePs.setString(1, card.cardBalance);
-                            updatePs.setString(2, card.cardName);
-                            updatePs.executeUpdate();
-                        } else {
-                            card.cardBalance = String.valueOf(Integer.parseInt(card.cardBalance) - Integer.parseInt(amount)) ;
-                            JOptionPane.showMessageDialog(this, "Kwota zadłużenia wynosi: " + Math.abs(Integer.parseInt(card.cardBalance) - Integer.parseInt(amount)), "Sukces", JOptionPane.INFORMATION_MESSAGE);
-                            String updateSql = "UPDATE karty SET saldokarty = ? WHERE nazwakarty = ?";
-                            PreparedStatement updatePs = conn.prepareStatement(updateSql);
-                            updatePs.setString(1, card.cardBalance);
-                            updatePs.setString(2, card.cardName);
-                            updatePs.executeUpdate();
-                        }
-                    }
+
+                if (!amount.matches("\\d+")) {
+                    JOptionPane.showMessageDialog(this, "Niepoprawny format kwoty. Spróbój ponownie.", "Try again", JOptionPane.ERROR_MESSAGE);
+                    amountField.setText("");
+                    return null;
                 } else if (Integer.parseInt(card.cardBalance) < Integer.parseInt(amount)) {
                     JOptionPane.showMessageDialog(this, "Nie masz wystarczających środków na koncie", "Try again", JOptionPane.ERROR_MESSAGE);
-                    cardNameField.setText("");
-                    cardPinField.setText("");
                     amountField.setText("");
                     return null;
                 } else if (Integer.parseInt(amount) < 0) {
                     JOptionPane.showMessageDialog(this, "Nie możesz wypłacić ujemnej kwoty", "Try again", JOptionPane.ERROR_MESSAGE);
-                    cardNameField.setText("");
-                    cardPinField.setText("");
                     amountField.setText("");
                     return null;
                 } else {

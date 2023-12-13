@@ -79,6 +79,9 @@ public class AddCard extends JDialog{
         }else if (!cardPin.matches("\\d{4}")) {
             JOptionPane.showMessageDialog(this, "Pin musi składać się z czterech cyfr", "Try again", JOptionPane.ERROR_MESSAGE);
             cardPinField.setText("");
+        } else if (!balance.matches("\\d+")){
+            JOptionPane.showMessageDialog(this, "Saldo musi być liczbą", "Try again", JOptionPane.ERROR_MESSAGE);
+            cardBalanceField.setText("");
         } else if (Double.parseDouble(balance)<0 ) {
             JOptionPane.showMessageDialog(this, "Saldo nie może być ujemne", "Try again", JOptionPane.ERROR_MESSAGE);
             cardBalanceField.setText("");

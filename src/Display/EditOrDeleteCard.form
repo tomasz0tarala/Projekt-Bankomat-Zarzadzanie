@@ -79,18 +79,18 @@
               <component id="f1264" class="javax.swing.JTable" binding="cardsTable">
                 <constraints/>
                 <properties>
-                  <background color="-14145493"/>
+                  <background color="-329226"/>
                   <font name="Century Gothic" size="20" style="1"/>
-                  <foreground color="-395538"/>
-                  <selectionBackground color="-14145493"/>
-                  <selectionForeground color="-395538"/>
+                  <foreground color="-14145493"/>
+                  <selectionBackground color="-329226"/>
+                  <selectionForeground color="-14145493"/>
                 </properties>
               </component>
             </children>
           </scrollpane>
           <component id="4af75" class="javax.swing.JButton" binding="backButton">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-14145493"/>
@@ -101,7 +101,7 @@
           </component>
         </children>
       </grid>
-      <grid id="72054" binding="middleBottomJPanel" layout-manager="GridLayoutManager" row-count="1" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="72054" binding="middleBottomJPanel" layout-manager="GridLayoutManager" row-count="1" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="10" left="10" bottom="10" right="10"/>
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -136,7 +136,7 @@
           </component>
           <hspacer id="a0589">
             <constraints>
-              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
           <hspacer id="f9018">
@@ -144,6 +144,17 @@
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
+          <component id="c83ba" class="javax.swing.JButton" binding="clearButton">
+            <constraints>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-14145493"/>
+              <font name="Century Gothic" size="20" style="1"/>
+              <foreground color="-395538"/>
+              <text value="Wyczyść"/>
+            </properties>
+          </component>
         </children>
       </grid>
       <grid id="a1aac" binding="middleTopJPanel" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -175,7 +186,7 @@
               </grid>
             </constraints>
             <properties>
-              <background color="-395538"/>
+              <background color="-329226"/>
               <font name="Century Gothic" size="22" style="1"/>
               <foreground color="-14145493"/>
             </properties>
@@ -202,14 +213,14 @@
               <text value="Nowy pin karty"/>
             </properties>
           </component>
-          <component id="765e1" class="javax.swing.JPasswordField" binding="newPasswordField">
+          <component id="765e1" class="javax.swing.JPasswordField" binding="newPinField">
             <constraints>
               <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
             <properties>
-              <background color="-395538"/>
+              <background color="-329226"/>
               <font name="Century Gothic" size="22" style="1"/>
               <foreground color="-14145493"/>
             </properties>
@@ -221,7 +232,7 @@
               </grid>
             </constraints>
             <properties>
-              <background color="-395538"/>
+              <background color="-329226"/>
               <font name="Century Gothic" size="22" style="1"/>
               <foreground color="-14145493"/>
             </properties>
