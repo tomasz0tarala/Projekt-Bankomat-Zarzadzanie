@@ -93,7 +93,8 @@ public class WithdrawMoney extends JDialog {
                     amountField.setText("");
                     return null;
                 } else {
-                    card.cardBalance = String.valueOf(Integer.parseInt(card.cardBalance) - Integer.parseInt(amount));
+                    int result = Integer.parseInt(card.cardBalance) - Integer.parseInt(amount);
+                    card.cardBalance = String.valueOf(result);
                     JOptionPane.showMessageDialog(this, "Wypłacono pieniądze obecny balans to: " + String.valueOf(Integer.parseInt(card.cardBalance) - Integer.parseInt(amount)), "Sukces", JOptionPane.INFORMATION_MESSAGE);
                     String updateSql = "UPDATE karty SET saldokarty = ? WHERE nazwakarty = ?";
                     PreparedStatement updatePs = conn.prepareStatement(updateSql);

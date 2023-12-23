@@ -1,6 +1,7 @@
 package Display;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -27,6 +28,7 @@ public class Menu extends JDialog{
         setSize(width, height);
         setResizable(false);
         setLocationRelativeTo(null);
+        
         wyswietlAkceptowaneKartyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -51,13 +53,13 @@ public class Menu extends JDialog{
                 EditOrDeleteCard editOrDeleteCard = new EditOrDeleteCard();
             }
         });
-        setVisible(true);
         wypłaćPieniądzeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 WithdrawMoney withdrawMoney = new WithdrawMoney();
             }
         });
+        setVisible(true);
     }
 
     public static void main(String[] args) {
