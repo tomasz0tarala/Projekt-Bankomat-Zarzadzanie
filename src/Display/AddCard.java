@@ -12,7 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.Statement;
 
 
-public class AddCard extends JDialog{
+public class AddCard extends JDialog {
     private Card card;
     private JLabel titleLabel;
     private JLabel iconLabel;
@@ -57,6 +57,7 @@ public class AddCard extends JDialog{
         });
 
     }
+
     private void registerCard() {
         String cardName = cardNameField.getText();
         String cardPin = String.valueOf(cardPinField.getPassword());
@@ -76,13 +77,13 @@ public class AddCard extends JDialog{
         System.out.println(cardType);
         if (cardName.isEmpty() || cardPin.isEmpty() || balance.isEmpty() || cardType.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Uzupełnij wszytkie pola aby dodać kartę", "Try again", JOptionPane.ERROR_MESSAGE);
-        }else if (!cardPin.matches("\\d{4}")) {
+        } else if (!cardPin.matches("\\d{4}")) {
             JOptionPane.showMessageDialog(this, "Pin musi składać się z czterech cyfr", "Try again", JOptionPane.ERROR_MESSAGE);
             cardPinField.setText("");
-        } else if (!balance.matches("\\d+")){
-            JOptionPane.showMessageDialog(this, "Saldo musi być liczbą", "Try again", JOptionPane.ERROR_MESSAGE);
+        } else if (!balance.matches("\\d+")) {
+            JOptionPane.showMessageDialog(this, "Saldo musi być dodatnią liczbą", "Try again", JOptionPane.ERROR_MESSAGE);
             cardBalanceField.setText("");
-        } else if (Double.parseDouble(balance)<0 ) {
+        } else if (Double.parseDouble(balance) < 0) {
             JOptionPane.showMessageDialog(this, "Saldo nie może być ujemne", "Try again", JOptionPane.ERROR_MESSAGE);
             cardBalanceField.setText("");
         } else {
@@ -98,7 +99,7 @@ public class AddCard extends JDialog{
 
     public Card card1;
 
-    private Card addCardToDatabase(String cardType, String cardName,String cardPin, String balance) {
+    private Card addCardToDatabase(String cardType, String cardName, String cardPin, String balance) {
         Card card1 = null;
         final String DB_URL = "jdbc:mysql://localhost/Bankomat?serverTimezone=UTC";
         final String NAZWAKARTY = "root";

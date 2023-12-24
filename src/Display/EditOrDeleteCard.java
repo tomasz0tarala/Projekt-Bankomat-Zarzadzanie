@@ -62,7 +62,7 @@ public class EditOrDeleteCard extends JDialog {
                     JOptionPane.showMessageDialog(null, "PIN musi składać się z 4 cyfr", "Try again", JOptionPane.ERROR_MESSAGE);
                     newPinField.setText("");
                 } else if (!newBalanceField.getText().matches("\\d+")) {
-                    JOptionPane.showMessageDialog(null, "Saldo musi być liczbą", "Try again", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Saldo musi być dodatnią liczbą", "Try again", JOptionPane.ERROR_MESSAGE);
                     newBalanceField.setText("");
                 } else {
                     if (cardsTable.getSelectedRowCount() == 1) {
@@ -91,15 +91,15 @@ public class EditOrDeleteCard extends JDialog {
                             ex.printStackTrace();
                         }
 
-                        JOptionPane.showMessageDialog(null, "Updated successfully");
+                        JOptionPane.showMessageDialog(null, "Zaktualizowano kartę");
                         newNameField.setText("");
                         newPinField.setText("");
                         newBalanceField.setText("");
                     } else {
                         if (cardsTable.getRowCount() == 0) {
-                            JOptionPane.showMessageDialog(null, "Table is empty");
+                            JOptionPane.showMessageDialog(null, "Tabela jest pusta");
                         } else {
-                            JOptionPane.showMessageDialog(null, "Please select single row for delete");
+                            JOptionPane.showMessageDialog(null, "Wybierz jedną kartę do edycji");
                         }
                     }
                 }

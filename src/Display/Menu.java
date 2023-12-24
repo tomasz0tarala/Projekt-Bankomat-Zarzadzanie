@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Menu extends JDialog{
+public class Menu extends JDialog {
     private JPanel menuJPanel;
     private JButton wyswietlAkceptowaneKartyButton;
     private JButton dodajKartęButton;
@@ -28,7 +28,7 @@ public class Menu extends JDialog{
         setSize(width, height);
         setResizable(false);
         setLocationRelativeTo(null);
-        
+
         wyswietlAkceptowaneKartyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -62,7 +62,4 @@ public class Menu extends JDialog{
         setVisible(true);
     }
 
-    public static void main(String[] args) {
-        Menu menu = new Menu();
-    }
 }

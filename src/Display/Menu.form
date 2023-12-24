@@ -65,7 +65,7 @@
                   <background color="-14145493"/>
                   <font name="Century Gothic" size="20" style="1"/>
                   <foreground color="-395538"/>
-                  <text value="Wyświetl Akceptowane Karty"/>
+                  <text value="Wyświetl akceptowane karty"/>
                 </properties>
               </component>
               <component id="57f21" class="javax.swing.JButton" binding="dodajKartęButton" default-binding="true">
@@ -87,7 +87,7 @@
                   <background color="-14145493"/>
                   <font name="Century Gothic" size="20" style="1"/>
                   <foreground color="-395538"/>
-                  <text value="Wypłać Pieniądze"/>
+                  <text value="Wypłać pieniądze"/>
                 </properties>
               </component>
               <component id="66aee" class="javax.swing.JButton" binding="edytujLubUsuńKartęButton" default-binding="true">
