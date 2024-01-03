@@ -9,7 +9,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class ShowCards extends JDialog{
+public class ShowCards extends JDialog {
     public JList listaKart;
     private JLabel titleLabel;
     private JLabel iconLabel;
@@ -20,7 +20,7 @@ public class ShowCards extends JDialog{
     private JButton wróćButton;
     private JPanel bottomJPanel;
 
-    public ShowCards( ) {
+    public ShowCards() {
         setContentPane(showCardsJPanel);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setTitle("Lista kart");

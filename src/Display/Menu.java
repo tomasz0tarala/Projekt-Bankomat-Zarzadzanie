@@ -1,7 +1,8 @@
 package Display;
 
+import Content.CSVCardManager;
+
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,6 +19,8 @@ public class Menu extends JDialog {
     private JPanel leftMidJPanel;
     private JPanel rightMidJPanel;
     private JPanel bottomJPanel;
+    private JButton importButton;
+    private JButton exportButton;
 
     public Menu() {
         setTitle("Menu");
@@ -57,6 +60,20 @@ public class Menu extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 WithdrawMoney withdrawMoney = new WithdrawMoney();
+            }
+        });
+        importButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CSVCardManager csvCardManager = new CSVCardManager();
+                csvCardManager.importFromCSV();
+            }
+        });
+        exportButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CSVCardManager csvCardManager = new CSVCardManager();
+                csvCardManager.exportToCSV();
             }
         });
         setVisible(true);
