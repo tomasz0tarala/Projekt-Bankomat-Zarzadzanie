@@ -120,7 +120,7 @@
                   <background color="-14145493"/>
                   <font name="Century Gothic" size="20" style="1"/>
                   <foreground color="-395538"/>
-                  <text value="Exportuj karty "/>
+                  <text value="Eksportuj karty "/>
                 </properties>
               </component>
             </children>
