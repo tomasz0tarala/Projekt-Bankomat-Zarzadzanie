@@ -1,6 +1,7 @@
 package Content;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.io.*;
 import java.sql.*;
@@ -24,6 +25,11 @@ public class CSVCardManager {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Wybierz plik do importu");
         fileChooser.setPreferredSize(new Dimension(600, 475));
+
+        // Add a file filter for .csv files
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("CSV files", "csv");
+        fileChooser.setFileFilter(filter);
+
         int returnValue = fileChooser.showOpenDialog(null);
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
@@ -41,6 +47,7 @@ public class CSVCardManager {
 
                     addCardToDatabase(card);
                 }
+                JOptionPane.showMessageDialog(null, "Importowanie z pliku powiodło się!", "Success", JOptionPane.INFORMATION_MESSAGE);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -51,6 +58,7 @@ public class CSVCardManager {
             UIManager.getLookAndFeelDefaults().putAll(originalDefaults);
         } catch (Exception e) {
             e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Importowanie z pliku nie powiodło się: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -112,8 +120,10 @@ public class CSVCardManager {
                     writer.append(cardBalance);
                     writer.append("\n");
                 }
+                JOptionPane.showMessageDialog(null, "Eksportowanie do pliku powiodło się!", "Success", JOptionPane.INFORMATION_MESSAGE);
             } catch (SQLException | IOException e) {
                 e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Eksportowanie do pliku nie powiodło się: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
 
